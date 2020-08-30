@@ -49,7 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventTests\Helpers\BasicEventClass.cs" />
     <Compile Include="EventTests\BasicEventClassTests.cs" />
     <Compile Include="EventTests\Helpers\Classes\BasicEventClass.cs" />
     <Compile Include="EventTests\Helpers\Extensions\BasicEventClassExtension.cs" />
