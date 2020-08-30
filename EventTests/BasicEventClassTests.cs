@@ -85,10 +85,10 @@ namespace UnitTestProject1.EventTests
 
             eventClass = new BasicEventClass();
 
-            var subscribe = new Action(() => eventClass.BasicEvent += InvokableMethod);
-            ActionExecutor(subscribe, subscribeCount);
-            var unsubscribe = new Action(() => eventClass.BasicEvent -= InvokableMethod);
-            ActionExecutor(unsubscribe, unsubscribeCount);
+            var subscribeToBasicEvent = new Action(() => eventClass.BasicEvent += InvokableMethod);
+            ActionExecutor(subscribeToBasicEvent, subscribeCount);
+            var unsubscribeToBasicEvent = new Action(() => eventClass.BasicEvent -= InvokableMethod);
+            ActionExecutor(unsubscribeToBasicEvent, unsubscribeCount);
 
             eventClass.RaiseBasicEventWithNoArgs();
         }
@@ -99,6 +99,24 @@ namespace UnitTestProject1.EventTests
             {
                 action.Invoke();
             }
+        }
+
+        [TestMethod]
+        public void SafeSubscribePractice()
+        {
+            eventClass = new BasicEventClass();
+
+            eventClass.SafeSubscribe(InvokableMethod);
+            // Expect a single invocation of the InvokableMethod;
+            eventClass.RaiseBasicEventWithNoArgs();
+
+            eventClass.SafeSubscribe(InvokableMethod);
+            // Expect a single invocation of the InvokableMethod;
+            eventClass.RaiseBasicEventWithNoArgs();
+
+
+            eventClass.SafeUnsubscribe(InvokableMethod);
+            eventClass.RaiseBasicEventWithNoArgs();
         }
     }
 }
