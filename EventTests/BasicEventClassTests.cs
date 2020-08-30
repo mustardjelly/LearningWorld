@@ -102,6 +102,7 @@ namespace UnitTestProject1.EventTests
         }
 
         [TestMethod]
+        [Description("Implements a safe subscribe pattern which prevents over subscribing.")]
         public void SafeSubscribePractice()
         {
             eventClass = new BasicEventClass();
