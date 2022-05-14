@@ -38,6 +38,7 @@ def example_2() -> None:
     print("Example 2:")
     x = "I am a string"
     print(f"example_2_x: {x}")
+
     def change_string(x):
         x = "CHANGED"
         print(f"change_string_x: {x}")
@@ -56,14 +57,45 @@ def example_2() -> None:
     #
     # When we print, we print example_2_x.
 
-    change_string(x)
+    print(change_string(x)) # Prints None because no value is returned
     print(x)
+    print()
+
+def example_3() -> None:
+    print("Example 3:")
+
+    x = "I am a string"
+    print(f"example_3_x: {x}")
+
+    def change_string(y):
+        y = "CHANGED"
+        print(f"change_string_x: {y}")
+
+        return y
+
+    x = change_string(x)
+
+    # What will be printed?
+    # I am string
+    # CHANGED
+
+    # Answer:
+    # 'CHANGED' will be printed
+    # We are print the value of x in scope.
+    # When we pass x into change_string, a new variable is created.
+    # This new variable is returned out of our method.
+    # This returned value is assigned to x.
+    # x is now printed.
+
+    print(f"example_3_x: {x}")
+
     print()
 
 
 def main() -> None:
     example_1()
     example_2()
+    example_3()
 
 if __name__ == "__main__":
     main()
