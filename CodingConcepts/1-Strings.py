@@ -93,10 +93,80 @@ def example_3() -> None:
     print()
 
 
+def example_4() -> None:
+    """Strings are immutable (cannot be modified)."""
+    print("Example 4:")
+    x = "x" # point variable x at string 'x'
+    y = x # point variable y at the string variable x is poiinting at, this is string 'x'
+
+    print(f"x: {x}")
+    print(f"y: {y}")
+    print(SEPARATOR)
+
+    print("Sameness checks")
+    x_is_y = x is y # This is true. There is only one 'x' string object ever.
+    x_equals_y = x == y # This is true, their values are the same.
+    print(f"x_is_y: {x_is_y}")
+    print(f"x_equals_y: {x_equals_y}")
+    print(SEPARATOR)
+
+
+    print("Assign 'new value' to x")
+    x = "new value"
+
+    print(f"x: {x}")
+    print(f"y: {y}")
+    print(SEPARATOR)
+
+    print("Sameness checks")
+    x_is_y = x is y # This is false, they point at different string objects
+    x_equals_y = x == y # This is false, they are not the same value
+    print(f"x_is_y: {x_is_y}")
+    print(f"x_equals_y: {x_equals_y}")
+
+    print()
+
+
+def example_5() -> None:
+    """Strings are immutable (cannot be modified)."""
+    print("Example 5:")
+    x = "x" # point variable x at string 'x'
+    y = x # point variable y at the string variable x is poiinting at, this is string 'x'
+    z = 'x'
+
+    print(f"x: {x}")
+    print(f"y: {y}")
+    print(f"z: {z}")
+    print(SEPARATOR)
+
+    print("Sameness checks")
+    x_is_y = x is y # This is true. There is only one 'x' string object ever.
+    x_is_z = x is z # This is true. There is only one 'x' string object ever.
+    x_equals_y = x == y # This is true, their values are the same.
+    x_equals_z = x == z # This is true, their values are the same.
+    print(f"x_is_y: {x_is_y}")
+    print(f"x_is_z: {x_is_z}")
+    print(f"x_equals_y: {x_equals_y}")
+    print(f"x_equals_z: {x_equals_z}")
+    print(SEPARATOR)
+
+
+    print("Assign 'new value' to x")
+    x = "new value"
+    print(SEPARATOR)
+
+    print(f"x: {x}")
+    print(f"y: {y}")
+
+    print()
+
+
 def main() -> None:
     example_1()
     example_2()
     example_3()
+    example_4()
+    example_5()
 
 if __name__ == "__main__":
     main()
