@@ -35,7 +35,7 @@ def example_1() -> None:
 
     
 def example_2() -> None:
-    print("Example 1:")
+    print("Example 2:")
     x = "I am a string"
     print(f"example_2_x: {x}")
     def change_string(x):
