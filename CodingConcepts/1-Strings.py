@@ -8,9 +8,6 @@ The idea is to highlight strings.
 """
 
 
-from dataclasses import dataclass
-
-
 SEPARATOR = "---"
 
     
@@ -58,6 +55,8 @@ def example_2() -> None:
     # When we print, we print example_2_x.
 
     print(change_string(x)) # Prints None because no value is returned
+    print(SEPARATOR)
+
     print(x)
     print()
 
@@ -66,10 +65,12 @@ def example_3() -> None:
 
     x = "I am a string"
     print(f"example_3_x: {x}")
+    print(SEPARATOR)
 
     def change_string(y):
         y = "CHANGED"
         print(f"change_string_x: {y}")
+        print(SEPARATOR)
 
         return y
 
