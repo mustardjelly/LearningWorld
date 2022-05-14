@@ -86,7 +86,7 @@ def example_3() -> None:
     function_name = "Example 3"
     print(f">>> {function_name}")
 
-    def print_var(x: str) -> None:
+    def print_var(x: str=None) -> None:
         """Prints a passed in string.
         
         x is defined as the argument passed to this function.
@@ -95,13 +95,17 @@ def example_3() -> None:
         print(f"x is defined: {x_exists}")
         if x_exists:
             print(x)
+        print("----")
+
+    # Pass nothing into the method.
+    # The default defined in the method (x: str=None) will be used.
+    print_var()
 
     # We pass a hard coded string "Hello World"
     print_var("Hello World")
 
     # Define a variable y
     y = "y variable"
-
     # Pass y into function
     # y is mapped to x in the function, and then is printed.
     print_var(y)
@@ -133,12 +137,18 @@ def example_4() -> None:
         print("Inside make_variables")
         print(f"x: {x}")
         print(f"y: {y}")
+        print("-------")
 
     make_variables()
     
     print("Outside make_variables")
     # We cannot do this. x has never been defined.
-    # print(x)
+    try:
+        print(x)
+    except NameError as e:
+        # catch the exception so execution can continue.
+        print (e)
+        pass
 
     # This works because y was declared global. This means all methods can 
     # access this variable. This may seem good but it does have performance
