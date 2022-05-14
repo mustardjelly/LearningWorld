@@ -174,6 +174,28 @@ def example_5() -> None:
     print(f"<<< {function_name}", end="\n\n")
 
 
+def example_6():
+    """Example to show changing variables out of scope."""
+    function_name = "Example 6"
+    print(f">>> {function_name}")
+    def variable_changer(x: str) -> str:
+        "Changes a string variable and returns it."
+        x = "HAXXED"
+        return x
+
+    x = "x set outside"
+
+    return_value = variable_changer(x)
+
+    # This prints the outside value. x out here, is not the same as 
+    # x defined in variable_changer.
+    print(x)
+
+    # This prints HAXXED. The return value of variable_changer
+    print(return_value)
+    print(f"<<< {function_name}", end="\n\n")
+
+
 
 def main():
     example_1()
@@ -181,6 +203,7 @@ def main():
     example_3()
     example_4()
     example_5()
+    example_6()
 
 if __name__ == "__main__":
     main()
